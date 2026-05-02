@@ -1,0 +1,17 @@
+---
+
+- name: Database setup
+  hosts: databases
+  become: true
+
+  tasks:
+    - name: Install mysql-server
+      ansible.builtin.apt:
+        name: mysql-server
+        state: present
+        
+    - name: Start mysql on boot
+      ansible.builtin.service:
+        name: mysql
+        enabled: true
+        state: started
