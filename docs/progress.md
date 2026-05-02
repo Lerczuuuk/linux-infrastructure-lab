@@ -15,3 +15,5 @@
  - Configured passwordless sudo for Ansible automation
 
  - Wrote and applied base_setup.yml playbook, installing base tools on all machines
+
+ - Wrote and applied webservers_setup.ymp - Nginx installed and running on web servers

@@ -1,0 +1,17 @@
+---
+
+- name: Installing nginx on web_servers
+  hosts: web_servers
+  become: true
+
+  tasks:
+    - name: Install nginx on web_servers
+      ansible.builtin.apt:
+        name: nginx
+        state: present
+
+    - name: Start nginx on boot
+      ansible.builtin.service:
+        name: nginx
+        state: started
+        enabled: true
