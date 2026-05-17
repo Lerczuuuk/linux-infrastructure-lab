@@ -19,3 +19,9 @@
  - Wrote and applied webservers_setup.yml - Nginx installed and running on web servers
 
  - Wrote and applied database_setup.yml - MySql installed and running on database
+
+ - Wrote and applied users.ymp - created dedicated ansible user on all machines
+
+ - Configured ProxyJump for remote management from second machine
+
+

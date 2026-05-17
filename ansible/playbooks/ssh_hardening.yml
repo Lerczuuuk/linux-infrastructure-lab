@@ -1,0 +1,36 @@
+---
+
+- name: SSH Hardening
+  hosts: all
+  become: true
+
+  tasks:
+    - name: Set MaxAuthTries
+      ansible.builtin.lineinfile:
+        path: /etc/ssh/sshd_config
+        regexp: '.*MaxAuthTries.*'
+        line: 'MaxAuthTries 3'
+    - name: Set LoginGraceTime
+      ansible.builtin.lineinfile:
+        path: /etc/ssh/sshd_config
+        regexp: '.*LoginGraceTime.*'
+        line: 'LoginGraceTime 30'
+    - name: Set PermitRootLogin
+      ansible.builtin.lineinfile:
+        path: /etc/ssh/sshd_config
+        regexp: '.*PermitRootLogin.*'
+        line: 'PermitRootLogin no'
+    - name: Set PasswordAuthentication
+      ansible.builtin.lineinfile:
+        path: /etc/ssh/sshd_config
+        regexp: '.*PasswordAuthentication.*'
+        line: 'PasswordAuthentication no'
+    - name: Set X11Forwarding
+      ansible.builtin.lineinfile:
+        path: /etc/ssh/sshd_config
+        regexp: '^X11Forwarding'
+        line: 'X11Forwarding no'
+    - name: Restart SSH service
+      ansible.builtin.service:
+        name: sshd
+        state: reloaded
