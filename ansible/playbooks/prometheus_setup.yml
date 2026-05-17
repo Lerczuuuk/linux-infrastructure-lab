@@ -1,0 +1,20 @@
+---
+
+- name: Installing prometheus
+  hosts: monitors
+  become: true
+
+  tasks:
+    - name: Install prometheus
+      ansible.builtin.apt:
+        name: prometheus
+        state: present
+    - name: Start prometheus on boot
+      ansible.builtin.service:
+        name: prometheus
+        state: started
+        enabled: true
+    - name: Copy prometheus config
+      ansible.builtin.copy:
+        src: ../files/prometheus.yml
+        dest: /etc/prometheus/prometheus.yml

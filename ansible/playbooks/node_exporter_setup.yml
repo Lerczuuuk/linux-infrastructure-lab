@@ -1,0 +1,16 @@
+---
+
+- name: Node Exporter setup
+  hosts: all
+  become: true
+
+  tasks:
+    - name: Install Node Exporter
+      ansible.builtin.apt:
+        name: prometheus-node-exporter
+        state: present
+    - name: Start Node Exporter on boot
+      ansible.builtin.service:
+        name: prometheus-node-exporter
+        state: started
+        enabled: true

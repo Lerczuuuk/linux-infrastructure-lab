@@ -7,7 +7,7 @@ Home lab simulating a production-grade infrastructure built on Ubuntu Server 26.
 - **Virtualization:** KVM / Virtual Machine Manager (Fedora host)
 - **Load Balancer:** HAProxy
 - **Automation:** Ansible
-- **Monitoring:** Nagios, ELK Stack
+- **Monitoring:** Prometheus + Grafan, ELK Stack
 - **CI/CD:** GitLab CI
 - **Security:** WireGuard VPN, OSSEC HIDS
 
@@ -17,12 +17,15 @@ Home lab simulating a production-grade infrastructure built on Ubuntu Server 26.
 | web01 | 192.168.122.10 | Web server |
 | web02 | 192.168.122.11 | Web server |
 | db01 | 192.168.122.20 | Database |
+| haproxy01 | 192.168.122.30 | Load Balancer |
+| monitor01 | 192.168.122.40 | Monitor |
+
 
 ## Status
 - [x] VM setup & network configuration
 - [x] Ansible automation
 - [x] Load balancing (HAProxy)
-- [ ] Monitoring (Nagios + ELK)
+- [ ] Monitoring (Prometheus + Grafana + ELK)
 - [ ] CI/CD pipeline
 - [ ] VPN & security hardening
 
