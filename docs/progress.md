@@ -24,4 +24,11 @@
 
  - Configured ProxyJump for remote management from second machine
 
+## Stake 3 - Load Balancing
+
+ - Installed and configured HAProxy on haproxdy01 (192.168.122.30)
+
+ - Configured roundrobin load balancing between web01 and web02
+
+ - Verified traffic distribution via HAProxy logs
 

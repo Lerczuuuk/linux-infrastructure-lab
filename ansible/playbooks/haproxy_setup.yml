@@ -1,0 +1,20 @@
+---
+
+- name: Installing haproxy
+  hosts: load_balancers
+  become: true
+
+  tasks:
+    - name: Install haproxy
+      ansible.builtin.apt:
+        name: haproxy
+        state: present
+    - name: Start haproxy on boot
+      ansible.builtin.service:
+        name: haproxy
+        state: started
+        enabled: true
+    - name: Copy haproxy config
+      ansible.builtin.copy:
+        src: ../files/haproxy.cfg
+        dest: /etc/haproxy/haproxy.cfg

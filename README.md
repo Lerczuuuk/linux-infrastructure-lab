@@ -20,8 +20,8 @@ Home lab simulating a production-grade infrastructure built on Ubuntu Server 26.
 
 ## Status
 - [x] VM setup & network configuration
-- [ ] Ansible automation
-- [ ] Load balancing (HAProxy)
+- [x] Ansible automation
+- [x] Load balancing (HAProxy)
 - [ ] Monitoring (Nagios + ELK)
 - [ ] CI/CD pipeline
 - [ ] VPN & security hardening
