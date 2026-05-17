@@ -24,7 +24,7 @@
 
  - Configured ProxyJump for remote management from second machine
 
-## Stake 3 - Load Balancing
+## Stage 3 - Load Balancing
 
  - Installed and configured HAProxy on haproxdy01 (192.168.122.30)
 
@@ -32,3 +32,6 @@
 
  - Verified traffic distribution via HAProxy logs
 
+## Stage 4 - Monitoring
+
+ - Set up and initially configured new virtual machine - monitor01
