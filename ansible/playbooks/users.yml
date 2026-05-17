@@ -1,0 +1,12 @@
+---
+
+- name: Creating "ansible" user
+  hosts: all
+  become: true
+
+  tasks:
+    - name: Create user
+      ansible.builtin.user:
+        name: ansible
+        groups: sudo
+        append: true
