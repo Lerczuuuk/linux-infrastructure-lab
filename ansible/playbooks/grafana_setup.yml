@@ -1,0 +1,41 @@
+---
+
+- name: Install grafana
+  hosts: monitors
+  become: true
+
+  tasks:
+    - name: Install the prerequisite packages
+      ansible.builtin.apt:
+        name:
+          - apt-transport-https
+          - wget
+          - gnupg
+        state: present
+
+    - name: Create a directory for the key
+      ansible.builtin.file:
+        path: /etc/apt/keyrings
+        state: directory
+
+    - name: Import GPG key
+      ansible.builtin.get_url:
+        url: https://apt.grafana.com/gpg-full.key
+        dest: /etc/apt/keyrings/grafana.asc
+        mode: '0644'
+
+    - name: Add Grafana repository to apt
+      ansible.builtin.apt_repository:
+        repo: "deb [signed-by=/etc/apt/keyrings/grafana.asc] https://apt.grafana.com stable main"
+        state: present
+
+    - name: update apt-cache and install grafana
+      ansible.builtin.apt:
+        update_cache: true
+        name: grafana
+        state: present
+    - name: start grafana on boot
+      ansible.builtin.service:
+        name: grafana-server
+        state: started
+        enabled: true

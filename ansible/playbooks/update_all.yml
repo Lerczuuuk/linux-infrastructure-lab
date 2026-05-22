@@ -1,0 +1,14 @@
+---
+
+- name: Update apt cache on all machines
+  hosts: all
+  become: true
+
+  tasks:
+    - name: Update apt cache
+      ansible.builtin.apt:
+        update_cache: true
+    - name: apt upgrade
+      ansible.builtin.apt:
+        upgrade: full
+
